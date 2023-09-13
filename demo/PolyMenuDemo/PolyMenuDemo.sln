@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32802.440
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolyMenuDemo", "PolyMenuDemo.csproj", "{FA94347E-B889-453E-87C0-18830546F1C9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FA94347E-B889-453E-87C0-18830546F1C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA94347E-B889-453E-87C0-18830546F1C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA94347E-B889-453E-87C0-18830546F1C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA94347E-B889-453E-87C0-18830546F1C9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {344237E1-256B-4B56-BDF2-70538A92CCEB}
+	EndGlobalSection
+EndGlobal
