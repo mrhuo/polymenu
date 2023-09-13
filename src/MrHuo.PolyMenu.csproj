@@ -22,11 +22,22 @@
     <Company>https://github.com/mrhuo/polymenu</Company>
     <Description>An simple c# winform control, polygon menu.</Description>
     <PackageTags>C#,Winform,PolygonMenu</PackageTags>
+    <PackageProjectUrl>https://github.com/mrhuo/polymenu</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/mrhuo/polymenu</RepositoryUrl>
+    <!-- 生成时自动创建 nuget 包 -->
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <!-- 自动创建 nuget 包到 nuget 目录 -->
     <PackageOutputPath>../nuget</PackageOutputPath>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="NuGet.Build.Tasks.Pack" Version="5.2.0"/>
+    <!-- nuget 包中包含 README.md -->
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- 自动创建 nuget 包，需要引入的包 -->
+    <PackageReference Include="NuGet.Build.Tasks.Pack" Version="5.2.0" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,24 +56,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x64\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-    <OutputPath>bin\x64\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
@@ -76,4 +69,12 @@
     <Compile Include="Trapezoid.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>copy $(SolutionDir)$(OutDir)MrHuo.PolyMenu.dll $(SolutionDir)..\release\MrHuo.PolyMenu.dll
+copy $(SolutionDir)$(OutDir)MrHuo.PolyMenu.pdb $(SolutionDir)..\release\MrHuo.PolyMenu.pdb</PostBuildEvent>
+  </PropertyGroup>
 </Project>
