@@ -1,7 +1,6 @@
-<a name="S9Ryl"></a>
 #### 背景
 闲来无事逛群聊，看到一网友发来这么一个需求：<br />![image.png](https://cdn.nlark.com/yuque/0/2023/png/21405578/1694529169985-93ea03da-8a86-4e67-84ea-4bac7bc7d7bf.png#averageHue=%23426662&clientId=ub483049f-b6a3-4&from=paste&height=489&id=ua5d7eb18&originHeight=840&originWidth=840&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=51557&status=done&style=none&taskId=u2588a7d1-6cef-4592-8410-d567ebe99c7&title=&width=489)<br />纯色图下面是一张六边形布局的背景图层，具体图片背景内容不便透露，所以这里采用色块形式模拟，ZF类的项目都喜欢这种给人新奇的东西，这每一个色块，都是一个可以点击进入的菜单。
-<a name="smtvV"></a>
+
 #### 分析
 乍一看这图，就是三个正六边形嵌套。所以就根据公式 `2 * Math.PI / 6`计算出每个6边形每个顶点偏移角度，再根据公式计算出每个顶点的坐标位置。算法如下：
 ```csharp
@@ -19,7 +18,7 @@ private static Point[] CalculateHexagonVertices(int sideLength, int offset = 0)
 }
 ```
 首先根据 sideLength 边长，计算出**最外层正六边形**6个顶点的位置。注意这个时候因为顶点是从 (0,0) 计算的，所以这里要加入 offset 设置顶点位置，让每一顶点平移指定的像素。<br />再计算**中间那个小正六边形（包括蓝色间隙）**的顶点位置。<br />最后再计算**最中间不包括间隙的紫色小正六边形**顶点位置。<br />这时候有人可能要问中间那些色块的位置怎么确定，这是个好问题，仔细看就知道了，这每一块都是一个等腰梯形，而且每个等腰梯形，都可以根据**最外层的大正六边形**和**中间那个小正六边形（包括蓝色间隙）**顶点位置计算出来。
-<a name="KQMn5"></a>
+
 #### 实现
 先定义一个梯形类：
 ```csharp
@@ -548,7 +547,7 @@ namespace HexagonButton
 }
 ```
 就是在窗体缩放时，把六边形菜单动态加进去。
-<a name="dlIr0"></a>
+
 #### ！！！大量代码预警
 代码发给网友之后，网友表示很满意，然后经过我的指导，然后自由发挥改成了7边形，然后我又扩展了下面这一版，更加智能了。<br />做着做着，就一发不可收拾了，做的越来越顺眼了...<br />第一版全部代码如下：
 ```csharp
