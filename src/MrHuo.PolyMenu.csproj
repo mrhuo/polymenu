@@ -17,7 +17,7 @@
   <!-- NUGET 打包设置 -->
   <PropertyGroup>
     <PackageId>MrHuo.PolyMenu</PackageId>
-    <Version>1.0.1.913</Version>
+    <Version>1.0.23.913</Version>
     <Authors>mrhuo</Authors>
     <Company>https://github.com/mrhuo/polymenu</Company>
     <Description>An simple c# winform control, polygon menu.</Description>
