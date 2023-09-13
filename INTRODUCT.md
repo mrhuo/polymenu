@@ -549,8 +549,8 @@ namespace HexagonButton
 ```
 就是在窗体缩放时，把六边形菜单动态加进去。
 <a name="dlIr0"></a>
-#### 扩展（！！！大量代码预警）
-代码发给网友之后，网友表示很满意，然后经过我的指导，然后自由发挥改成了7边形，然后我又扩展了下面这一版，更加智能了。<br />截一些图片在这里：<br />做着做着，就一发不可收拾了，做的越来越顺眼了...<br />全部代码如下：
+#### ！！！大量代码预警
+代码发给网友之后，网友表示很满意，然后经过我的指导，然后自由发挥改成了7边形，然后我又扩展了下面这一版，更加智能了。<br />做着做着，就一发不可收拾了，做的越来越顺眼了...<br />第一版全部代码如下：
 ```csharp
 using System;
 using System.ComponentModel;
@@ -1045,7 +1045,7 @@ namespace HexagonButton
     }
 }
 ```
-可见使用起来极其方便。<br />最后，该项目已全部开源：<br />开源地址：[https://github.com/mrhuo/polymenu](https://github.com/mrhuo/polymenu)<br />NUGET 安装：
+可见使用起来极其方便。<br />最后，该菜单通过增加了一些配置，使得可以自定义边数，是否包含中间菜单等功能，功能更加强大了一些。该项目已全部开源<br />开源地址：[https://github.com/mrhuo/polymenu](https://github.com/mrhuo/polymenu)<br />NUGET 安装：
 ```bash
 Install-Package MrHuo.PolyMenu -Version 1.0.23.913
 ```
