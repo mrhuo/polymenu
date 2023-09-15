@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32802.440
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolyMenuDemo", "PolyMenuDemo.csproj", "{FA94347E-B889-453E-87C0-18830546F1C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolyMenuDemo", "winform\PolyMenuDemo.csproj", "{FA94347E-B889-453E-87C0-18830546F1C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolyMenuWpfDemo", "wpf\PolyMenuWpfDemo.csproj", "{4832C76E-CB3F-449A-B2E4-E31786267002}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,11 +17,15 @@ Global
 		{FA94347E-B889-453E-87C0-18830546F1C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA94347E-B889-453E-87C0-18830546F1C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA94347E-B889-453E-87C0-18830546F1C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4832C76E-CB3F-449A-B2E4-E31786267002}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4832C76E-CB3F-449A-B2E4-E31786267002}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4832C76E-CB3F-449A-B2E4-E31786267002}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4832C76E-CB3F-449A-B2E4-E31786267002}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {344237E1-256B-4B56-BDF2-70538A92CCEB}
+		SolutionGuid = {E1522445-478C-469D-8850-881530FB47F5}
 	EndGlobalSection
 EndGlobal

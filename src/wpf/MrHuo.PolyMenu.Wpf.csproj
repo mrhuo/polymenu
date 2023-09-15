@@ -4,36 +4,35 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{33306939-29F5-40BB-ADF8-9965F52E99D4}</ProjectGuid>
+    <ProjectGuid>{B51F8576-6C00-4046-9B3C-72DAE5D9C838}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MrHuo.PolyMenu</RootNamespace>
-    <AssemblyName>MrHuo.PolyMenu</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <RootNamespace>MrHuo.PolyMenu.Wpf</RootNamespace>
+    <AssemblyName>MrHuo.PolyMenu.Wpf</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <!-- NUGET 打包设置 -->
   <PropertyGroup>
-    <PackageId>MrHuo.PolyMenu</PackageId>
-    <Version>1.0.23.913</Version>
+    <PackageId>MrHuo.PolyMenu.Wpf</PackageId>
+    <Version>1.0.23.915</Version>
     <Authors>mrhuo</Authors>
     <Company>https://github.com/mrhuo/polymenu</Company>
-    <Description>An simple c# winform control, polygon menu.</Description>
-    <PackageTags>C#,Winform,PolygonMenu</PackageTags>
+    <Description>An simple c# wpf control, polygon menu.</Description>
+    <PackageTags>C#,wpf,PolygonMenu</PackageTags>
     <PackageProjectUrl>https://github.com/mrhuo/polymenu</PackageProjectUrl>
     <RepositoryUrl>https://github.com/mrhuo/polymenu</RepositoryUrl>
     <!-- 生成时自动创建 nuget 包 -->
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <!-- 自动创建 nuget 包到 nuget 目录 -->
-    <PackageOutputPath>../nuget</PackageOutputPath>
+    <PackageOutputPath>../../nuget/wpf</PackageOutputPath>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>
     <!-- nuget 包中包含 README.md -->
-    <None Include="..\README.md" Pack="true" PackagePath="\" />
+    <None Include="../../README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
   <ItemGroup>
     <!-- 自动创建 nuget 包，需要引入的包 -->
@@ -57,24 +56,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Core" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PolygonMenu.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="PolygonMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Trapezoid.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>
-    </PreBuildEvent>
-  </PropertyGroup>
-  <PropertyGroup>
-    <PostBuildEvent>copy $(SolutionDir)$(OutDir)MrHuo.PolyMenu.dll $(SolutionDir)..\release\MrHuo.PolyMenu.dll
-copy $(SolutionDir)$(OutDir)MrHuo.PolyMenu.pdb $(SolutionDir)..\release\MrHuo.PolyMenu.pdb</PostBuildEvent>
+    <PostBuildEvent>copy $(SolutionDir)wpf\$(OutDir)MrHuo.PolyMenu.Wpf.dll $(SolutionDir)..\release\MrHuo.PolyMenu.Wpf.dll
+copy $(SolutionDir)wpf\$(OutDir)MrHuo.PolyMenu.Wpf.pdb $(SolutionDir)..\release\MrHuo.PolyMenu.Wpf.pdb</PostBuildEvent>
   </PropertyGroup>
 </Project>

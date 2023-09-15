@@ -1,0 +1,79 @@
+﻿<Window x:Class="PolyMenuWpfDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MrHuo.PolyMenu.Wpf;assembly=MrHuo.PolyMenu.Wpf"
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        Title="MainWindow" Height="600" Width="800">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="200" />
+        </Grid.ColumnDefinitions>
+        <GroupBox Header="演示区" Grid.Column="0" Padding="5">
+            <local:PolygonMenu 
+                SideNum="6"
+                x:Name="pm" Width="400" Height="400" Background="DarkOrange"
+                HorizontalAlignment="Left" VerticalAlignment="Top" />
+        </GroupBox>
+        <GroupBox Header="配置区" Grid.Column="2" Padding="5"
+                  Width="200">
+            <StackPanel Orientation="Vertical">
+                <Label FontWeight="Bold" Content="边数：(必须 >= 3)" />
+                <DockPanel>
+                    <Label Content="{Binding Path=Value, ElementName=configSideNum}" DockPanel.Dock="Right" />
+                    <Slider x:Name="configSideNum" Minimum="3" Maximum="12" Value="6" ValueChanged="configSideNum_ValueChanged" SmallChange="1" TickPlacement="TopLeft" IsSnapToTickEnabled="True" />
+                </DockPanel>
+
+                <Label FontWeight="Bold" Content="是否中间开洞：" Margin="0,10,0,0" />
+                <ComboBox x:Name="configHasCenterHole" SelectionChanged="configHasCenterHole_SelectionChanged">
+                    <ComboBoxItem Content="true" />
+                    <ComboBoxItem Content="false" />
+                </ComboBox>
+
+                <Label FontWeight="Bold" Content="开洞大小：" Margin="0,10,0,0" />
+                <Slider x:Name="configHoleSize" Minimum="0" Maximum="{Binding ElementName=pm, Path=Width}" Value="{Binding ElementName=pm, Path=HoleSize}" SmallChange="1" IsSnapToTickEnabled="True" ValueChanged="configHoleSize_ValueChanged" />
+
+                <Label FontWeight="Bold" Content="间隙大小：" Margin="0,10,0,0" />
+                <DockPanel>
+                    <Label Content="{Binding Path=Value, ElementName=configGapSize}" DockPanel.Dock="Right" />
+                    <Slider x:Name="configGapSize" Minimum="0" Maximum="50" Value="20" SmallChange="1" IsSnapToTickEnabled="True" ValueChanged="configGapSize_ValueChanged" />
+                </DockPanel>
+
+                <Label FontWeight="Bold" Content="选择背景图片：" Margin="0,10,0,0" />
+                <DockPanel>
+                    <Button x:Name="clearImage" Content="清空" DockPanel.Dock="Right" Margin="5,0,0,0" Padding="5, 0" Click="clearImage_Click" />
+                    <Button x:Name="configImage" Content="选择图片" Click="configImage_Click" />
+                </DockPanel>
+
+                <Label FontWeight="Bold" Content="默认色块颜色：" Margin="0,10,0,0" />
+                <DockPanel>
+                    <Button x:Name="configBlockColorToTransparent" Content="透明" DockPanel.Dock="Right" Margin="5,0,0,0" Padding="5, 0" Click="configBlockColorToTransparent_Click" />
+                    <TextBox x:Name="configBlockColor" Text="#32FFFFFF" BorderThickness="1" BorderBrush="DarkGray" TextChanged="configBlockColor_TextChanged" />
+                </DockPanel>
+
+                <Label FontWeight="Bold" Content="鼠标滑过色块颜色：" Margin="0,10,0,0" />
+                <DockPanel>
+                    <Button x:Name="configBlockHoverColorToTransparent" Content="透明" DockPanel.Dock="Right" Margin="5,0,0,0" Padding="5, 0" Click="configBlockHoverColorToTransparent_Click" />
+                    <TextBox x:Name="configBlockHoverColor" Text="#96FFFFFF" BorderThickness="1" BorderBrush="DarkGray" TextChanged="configBlockHoverColor_TextChanged" />
+                </DockPanel>
+
+                <Label FontWeight="Bold" Content="控件底色：" Margin="0,10,0,0" />
+                <Grid>
+                    <Button x:Name="setControlBgTransparent" Content="透明" HorizontalAlignment="Left" Padding="10, 4" Click="setControlBgTransparent_Click" />
+                    <Button x:Name="restoreControlBg" Content="橙色" HorizontalAlignment="Right" Padding="10, 4" Click="restoreControlBg_Click" />
+                </Grid>
+
+                <Label FontWeight="Bold" Content="控件大小：" Margin="0,10,0,0" />
+                <Grid>
+                    <Button x:Name="minusControlSize" Content="-50" HorizontalAlignment="Left" Padding="10, 4" Click="minusControlSize_Click" />
+                    <Button x:Name="plusControlSize" Content="+50" HorizontalAlignment="Right" Padding="10, 4" Click="plusControlSize_Click" />
+                </Grid>
+
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</Window>

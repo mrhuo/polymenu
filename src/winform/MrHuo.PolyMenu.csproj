@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{33306939-29F5-40BB-ADF8-9965F52E99D4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MrHuo.PolyMenu</RootNamespace>
+    <AssemblyName>MrHuo.PolyMenu</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <!-- NUGET 打包设置 -->
+  <PropertyGroup>
+    <PackageId>MrHuo.PolyMenu</PackageId>
+    <Version>1.0.23.915</Version>
+    <Authors>mrhuo</Authors>
+    <Company>https://github.com/mrhuo/polymenu</Company>
+    <Description>An simple c# winform control, polygon menu.</Description>
+    <PackageTags>C#,Winform,PolygonMenu</PackageTags>
+    <PackageProjectUrl>https://github.com/mrhuo/polymenu</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/mrhuo/polymenu</RepositoryUrl>
+    <!-- 生成时自动创建 nuget 包 -->
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <!-- 自动创建 nuget 包到 nuget 目录 -->
+    <PackageOutputPath>../../nuget/winform</PackageOutputPath>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- nuget 包中包含 README.md -->
+    <None Include="../../README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- 自动创建 nuget 包，需要引入的包 -->
+    <PackageReference Include="NuGet.Build.Tasks.Pack" Version="5.2.0" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PolygonMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Trapezoid.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy $(SolutionDir)winform\$(OutDir)MrHuo.PolyMenu.dll $(SolutionDir)..\release\MrHuo.PolyMenu.dll
+copy $(SolutionDir)winform\$(OutDir)MrHuo.PolyMenu.pdb $(SolutionDir)..\release\MrHuo.PolyMenu.pdb</PostBuildEvent>
+  </PropertyGroup>
+</Project>
