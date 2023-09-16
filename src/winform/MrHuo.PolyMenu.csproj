@@ -33,7 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- nuget 包中包含 README.md -->
-    <None Include="../../README.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
   <ItemGroup>
     <!-- 自动创建 nuget 包，需要引入的包 -->
